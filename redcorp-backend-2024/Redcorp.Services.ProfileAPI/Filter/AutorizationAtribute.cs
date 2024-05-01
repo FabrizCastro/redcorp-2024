@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Redcorp.Services.ProfileAPI.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Redcorp.Services.AuthAndProfileAPI.Filter
 {

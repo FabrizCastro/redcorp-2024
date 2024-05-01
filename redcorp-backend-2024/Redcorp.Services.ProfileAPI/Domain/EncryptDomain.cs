@@ -1,4 +1,5 @@
 ﻿using Redcorp.Services.AuthAndProfileAPI.Domain.I.Domain;
+using System;
 
 namespace Redcorp.Services.AuthAndProfileAPI.Domain
 {
