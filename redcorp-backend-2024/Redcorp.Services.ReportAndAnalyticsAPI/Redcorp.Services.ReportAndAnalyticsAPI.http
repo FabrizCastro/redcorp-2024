@@ -1,0 +1,6 @@
+@Redcorp.Services.ReportAndAnalyticsAPI_HostAddress = http://localhost:5187
+
+GET {{Redcorp.Services.ReportAndAnalyticsAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
