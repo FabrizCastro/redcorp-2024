@@ -36,7 +36,6 @@ namespace Redcorp.Services.ProfileAPI.Context
             modelBuilder.Entity<Employee>().Property(p => p.email).IsRequired();
             modelBuilder.Entity<Employee>().Property(p => p.area).IsRequired();
             modelBuilder.Entity<Employee>().Property(p => p.cargo).IsRequired();
-            modelBuilder.Entity<Employee>().Property(p => p.rol).IsRequired();
             modelBuilder.Entity<Employee>().Property(p => p.isActive).HasDefaultValue(true);
         }
     }

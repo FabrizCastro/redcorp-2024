@@ -28,9 +28,7 @@ namespace Redcorp.Services.ProfileAPI.Models
         [Required]
         public string? cargo { get; set; }
         public string? photo { get; set; }
-        [Required]
         public bool isActive { get; set; }
-        [Required]
         public string? rol { get; set; }
     }
 }

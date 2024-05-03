@@ -50,7 +50,7 @@ namespace Redcorp.Services.ProfileAPI.Infraestructure
         {
             try
             {
-                return await _profileDbContext.Employees.SingleAsync(e => e.email == email);
+                return await _profileDbContext.Employees.FirstOrDefaultAsync(e => e.email == email);
             }
             catch (Exception ex)
             {
@@ -112,6 +112,16 @@ namespace Redcorp.Services.ProfileAPI.Infraestructure
         {
             try
             {
+                if (employee.cargo == "Supervisor" || employee.cargo == "Gerente")
+                {
+                    employee.rol = "admin";
+                }
+                else
+                {
+                    employee.rol = "user";
+                }
+
+                employee.isActive = true;
                 await _profileDbContext.Employees.AddAsync(employee);
                 await _profileDbContext.SaveChangesAsync();
                 return employee.id;

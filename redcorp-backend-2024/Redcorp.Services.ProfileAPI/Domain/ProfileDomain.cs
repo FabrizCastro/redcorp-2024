@@ -1,4 +1,5 @@
-﻿using Redcorp.Services.ProfileAPI.Domain.I.Domain;
+﻿using Redcorp.Services.AuthAndProfileAPI.Domain.I.Domain;
+using Redcorp.Services.ProfileAPI.Domain.I.Domain;
 using Redcorp.Services.ProfileAPI.Infraestructure.I.Infraestructure;
 using Redcorp.Services.ProfileAPI.Models;
 
@@ -7,10 +8,13 @@ namespace Redcorp.Services.ProfileAPI.Domain
     public class ProfileDomain : IProfileDomain
     {
         private IProfileInfraestructure _profileInfraestructure;
-
-        public ProfileDomain(IProfileInfraestructure profileInfraestructure) 
+        private IEncryptDomain _encryptDomain;
+        private ITokenDomain _tokenDomain;
+        public ProfileDomain(IProfileInfraestructure profileInfraestructure, IEncryptDomain encryptDomain, ITokenDomain tokenDomain) 
         {
             _profileInfraestructure = profileInfraestructure;
+            _encryptDomain = encryptDomain;
+            _tokenDomain = tokenDomain;
         }
 
         public async Task<bool> DeleteAsync(int id)
@@ -23,9 +27,16 @@ namespace Redcorp.Services.ProfileAPI.Domain
             return await _profileInfraestructure.GetByEmailAsync(username);
         }
 
-        public Task<string> LoginAsync(Employee employee)
+        public async Task<string> LoginAsync(Employee employee)
         {
-            throw new NotImplementedException();
+            var foundUser = await _profileInfraestructure.GetByEmailAsync(employee.email);
+
+            if (_encryptDomain.Encrypt(employee.password) == foundUser.password)
+            {
+                return _tokenDomain.GenerateJwt(foundUser.email);
+            }
+
+            throw new ArgumentException("Invalid email or password");
         }
 
         public async Task<bool> SaveAsync(Employee employee)
@@ -36,9 +47,16 @@ namespace Redcorp.Services.ProfileAPI.Domain
             return await _profileInfraestructure.SaveAsync(employee);
         }
 
-        public Task<int> SignupAsync(Employee employee)
+        public async Task<int> SignupAsync(Employee employee)
         {
-            throw new NotImplementedException();
+            employee.password = _encryptDomain.Encrypt(employee.password);
+
+            if (!this.IsValidData(employee.name, employee.last_name))
+            {
+                return 0;
+            }
+
+            return await _profileInfraestructure.SignupAsync(employee);
         }
 
         public Task<bool> UpdateAsync(Employee employee)
