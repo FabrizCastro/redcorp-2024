@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Redcorp.Services.ProfileAPI.Domain.I.Domain;
 using Redcorp.Services.ProfileAPI.Infraestructure.I.Infraestructure;
 using Redcorp.Services.ProfileAPI.Models;
 using Redcorp.Services.ProfileAPI.Models.Dto;
+using Redcorp.Services.AuthAndProfileAPI.Filter;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Redcorp.Services.ProfileAPI.Controllers
 {
@@ -16,15 +17,16 @@ namespace Redcorp.Services.ProfileAPI.Controllers
         private IProfileDomain _profileDomain;
         private IProfileInfraestructure _profileInfraestructure;
         private IMapper _mapper;
-
-        public ProfileAPIController(IProfileDomain profileDomain, IProfileInfraestructure profileInfraestructure, IMapper mapper)
+        public IConfiguration _configuration;
+        public ProfileAPIController(IProfileDomain profileDomain, IProfileInfraestructure profileInfraestructure, IMapper mapper, IConfiguration configuration)
         {
             _profileDomain = profileDomain;
             _profileInfraestructure = profileInfraestructure;
             _mapper = mapper;
+            _configuration = configuration;
         }
 
-        [Authorize("user,admin")]
+        [AutorizationAtribute("user,admin")]
         [HttpGet]
         public async Task<List<EmployeeResponseDto>> GetAsync()
         {
@@ -34,7 +36,7 @@ namespace Redcorp.Services.ProfileAPI.Controllers
             return _mapper.Map<List<Employee>, List<EmployeeResponseDto>>(employees);
         }
 
-        [Authorize("user,admin")]
+        [AutorizationAtribute("user,admin")]
         [HttpGet("{id}", Name = "Get")]
         public async Task<EmployeeResponseDto> Get(int id)
         {
@@ -46,7 +48,7 @@ namespace Redcorp.Services.ProfileAPI.Controllers
 
         }
 
-        [Authorize("admin")]
+        [AutorizationAtribute("admin")]
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] EmployeeRequestDto employeeRequest)
         {
@@ -65,7 +67,7 @@ namespace Redcorp.Services.ProfileAPI.Controllers
                 return StatusCode(400);
             }
         }
-        [Authorize("user,admin")]
+        [AutorizationAtribute("user,admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] EmployeeRequestDto employeeRequest)
         {
@@ -80,7 +82,7 @@ namespace Redcorp.Services.ProfileAPI.Controllers
             }
         }
 
-        [Authorize("admin")]
+        [AutorizationAtribute("admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

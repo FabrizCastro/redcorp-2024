@@ -18,7 +18,7 @@ namespace Redcorp.Services.AuthAndProfileAPI.Middleware
         /// </summary>
         /// <param name="context"></param>
         /// <param name="tokenDomain"></param>
-        /// <param name="employeeDomain"></param>
+        /// <param name="profileDomain"></param>
         public async Task Invoke(HttpContext context, ITokenDomain tokenDomain, IProfileDomain profileDomain)
         {
             //Autenticación
