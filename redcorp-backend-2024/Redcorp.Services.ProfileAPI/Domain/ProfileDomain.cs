@@ -59,10 +59,10 @@ namespace Redcorp.Services.ProfileAPI.Domain
             return await _profileInfraestructure.SignupAsync(employee);
         }
 
-        public Task<bool> UpdateAsync(Employee employee)
+        public Task<bool> UpdateAsync(int id, Employee employee)
         {
             if (!this.IsValidData(employee.name, employee.last_name)) throw new Exception("La longitud del nombre es inválida");
-            return _profileInfraestructure.UpdateAsync(employee);
+            return _profileInfraestructure.UpdateAsync(id,employee);
         }
 
         private bool IsValidData(string? name, string? last_name)

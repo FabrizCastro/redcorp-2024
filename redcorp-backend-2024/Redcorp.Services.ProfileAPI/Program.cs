@@ -50,7 +50,7 @@ builder.Services.AddDbContext<ProfileDbContext>(
         );
     });
 //-----------------
-builder.Services.AddAutoMapper(typeof(ModelToResponse), typeof(RequestToModel));
+builder.Services.AddAutoMapper(typeof(ModelToResponse), typeof(RequestToModel));    
 
 builder.Services.AddCors(options =>
 {

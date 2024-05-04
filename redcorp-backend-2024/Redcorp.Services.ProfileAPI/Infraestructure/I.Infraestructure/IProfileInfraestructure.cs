@@ -6,7 +6,7 @@ namespace Redcorp.Services.ProfileAPI.Infraestructure.I.Infraestructure
     {
         Task<Employee> GetByIdAsync(int id);
         Task<bool> SaveAsync(Employee employee);
-        Task<bool> UpdateAsync(Employee employee);
+        Task<bool> UpdateAsync(int id,Employee employee);
         Task<bool> DeleteAsync(int id);
 
         Task<Employee> GetByEmailAsync(string email);

@@ -11,6 +11,7 @@ namespace Redcorp.Services.ProfileAPI.Mapper
         {
             CreateMap<EmployeeRequestDto, Employee>();
             CreateMap<AuthLoginRequest, Employee>();
+            CreateMap<EmployeeRequestPutDto,Employee>();
         }
     }
 }

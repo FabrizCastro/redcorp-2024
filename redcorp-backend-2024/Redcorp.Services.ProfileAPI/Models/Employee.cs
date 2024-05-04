@@ -5,7 +5,7 @@ namespace Redcorp.Services.ProfileAPI.Models
 {
     public class Employee
     {
-        [Required]
+        [Required]  
         public int id { get; set; }
         [Required]
         [MaxLength(30)]

@@ -132,11 +132,11 @@ namespace Redcorp.Services.ProfileAPI.Infraestructure
             }
         }
 
-        public async Task<bool> UpdateAsync(Employee employee)
+        public async Task<bool> UpdateAsync(int id,Employee employee)
         {
             try
             {
-                Employee _employee = await _profileDbContext.Employees.FirstOrDefaultAsync(x => x.id == employee.id);
+                Employee _employee = await _profileDbContext.Employees.FirstOrDefaultAsync(x => x.id == id);
                 if (_employee == null)
                     return false;
 

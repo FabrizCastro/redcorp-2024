@@ -7,6 +7,7 @@ using Redcorp.Services.ProfileAPI.Models;
 using Redcorp.Services.ProfileAPI.Models.Dto;
 using Redcorp.Services.AuthAndProfileAPI.Filter;
 using Microsoft.AspNetCore.Authorization;
+using Redcorp.Services.AuthAndProfileAPI.Models.Dto;
 
 namespace Redcorp.Services.ProfileAPI.Controllers
 {
@@ -69,11 +70,11 @@ namespace Redcorp.Services.ProfileAPI.Controllers
         }
         [AutorizationAtribute("user,admin")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] EmployeeRequestDto employeeRequest)
+        public async Task<IActionResult> Put(int id, [FromBody] EmployeeRequestPutDto employeeRequest)
         {
             if (ModelState.IsValid)
             {
-                await _profileDomain.UpdateAsync(_mapper.Map<EmployeeRequestDto, Employee>(employeeRequest));
+                await _profileDomain.UpdateAsync(id,_mapper.Map<EmployeeRequestPutDto, Employee>(employeeRequest));
                 return Ok(); 
             }
             else
