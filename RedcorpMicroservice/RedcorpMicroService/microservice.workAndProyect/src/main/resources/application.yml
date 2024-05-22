@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: msvc-work_and_projects
+  config:
+    import: optional:configserver:http://localhost:8888
