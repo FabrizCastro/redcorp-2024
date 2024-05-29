@@ -23,6 +23,7 @@
     <module>microservice-config</module>
     <module>microservice-.authAndProfile</module>
     <module>microservice.workAndProyect</module>
+    <module>microservice-task</module>
   </modules>
 
   <properties>

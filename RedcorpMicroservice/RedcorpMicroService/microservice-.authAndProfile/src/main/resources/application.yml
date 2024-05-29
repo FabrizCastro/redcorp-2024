@@ -3,3 +3,7 @@ spring:
     name: msvc-auth_and_profile
   config:
     import: optional:configserver:http://localhost:8888
+
+jwt:
+  secret: MiAVzqUXy5Tfr1kVIGpPMiAVzqUXy5Tfr1kVIGpP
+  expiration: 86400

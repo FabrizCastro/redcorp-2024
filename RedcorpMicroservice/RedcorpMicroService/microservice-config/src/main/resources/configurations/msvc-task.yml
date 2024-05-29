@@ -1,14 +1,14 @@
 server:
-  port: 9090
+  port: 8070
 
 spring:
   application:
-    name: msvc-work_and_projects
+    name: msvc-task
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/redcorp_work_project_db
+    url: jdbc:mysql://localhost:3306/redcorp_task_db
     username: root
-    password: admin13
+    password: 12345678
   jpa:
     hibernate:
       ddl-auto: create-drop
