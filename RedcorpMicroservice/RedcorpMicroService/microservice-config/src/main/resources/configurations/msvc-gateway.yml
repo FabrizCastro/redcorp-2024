@@ -18,6 +18,11 @@ spring:
           uri: 'http://localhost:9090'
           predicates:
             - Path=/api/redcorp/v1/section/**
+        - id: auth
+          uri: 'http://localhost:8090'
+          predicates:
+            - Path=/api/redcorp/v1/auth/**
+
 eureka:
   client:
     register-with-eureka: false

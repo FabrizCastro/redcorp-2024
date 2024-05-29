@@ -21,4 +21,5 @@ public class EmployeeRequest {
     private String employeeArea;
     private String employeeCargo;
     private Long sectionId;
+    private String role;
 }
