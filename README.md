@@ -10,8 +10,8 @@ Para este proyecto se está usando `MySQL` como motor de base de datos, usando c
 
 ## Composición
 Esta solución está conformada por cinco microservicios, siendo 2, core del negocio:
-- `microservice-workAndProject` (Puerto 8090)
-- `microservice-authAndProfile` (Puerto 9090)
+- `microservice-workAndProject` (Puerto 9090)
+- `microservice-authAndProfile` (Puerto 8090)
 - `microservice-config` (Puerto 8888)
 - `microservice-eureka` (Puerto 8761)
 - `microservice-gateway` (Puerto 8080)
