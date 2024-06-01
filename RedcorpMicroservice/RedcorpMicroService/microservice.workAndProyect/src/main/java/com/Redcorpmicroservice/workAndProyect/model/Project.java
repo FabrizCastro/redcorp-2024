@@ -33,4 +33,7 @@ public class Project {
 
     @Column(name="project_state", nullable = false, length = 100)
     private String projectState;
+
+    @Column(name="team_id", nullable = false)
+    private Long teamId;
 }

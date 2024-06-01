@@ -1,6 +1,5 @@
 package com.Redcorpmicroservice.workAndProyect.repository;
 
-import com.Redcorpmicroservice.workAndProyect.model.Section;
 import com.Redcorpmicroservice.workAndProyect.model.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -8,6 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SectionRepository extends JpaRepository<Section, Long> {
+public interface TeamRepository extends JpaRepository<  Team,Long> {
 
+    List<Team> findAllBySectionId(Long teamId);
+
+    List<Team> findAll();
 }

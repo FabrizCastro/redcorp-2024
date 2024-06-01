@@ -22,6 +22,6 @@ public class EmployeeResponse {
     private String employeeCargo;
     private String employeePhoto;
     private Long sectionId;
-
+    private Long teamId;
 
 }

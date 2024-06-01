@@ -23,13 +23,7 @@ public class Team {
     @Column(name="team_description", nullable = false, length = 100)
     private String teamDescription;
 
-    @Column(name="employee_Id", nullable = false, length = 50)
-    private Long employeeId;
-
-    @Column(name="project_Id", nullable = false)
-    private Long projectId;
-
-    @Column(name="task_Id", nullable = false)
-    private Long taskId;
+    @Column(name="section_id", nullable = false)
+    private Long sectionId;
 
 }

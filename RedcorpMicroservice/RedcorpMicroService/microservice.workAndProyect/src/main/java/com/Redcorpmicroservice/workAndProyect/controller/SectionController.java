@@ -43,4 +43,11 @@ public class SectionController {
     public ResponseEntity<?> findEmployeesBySectionId(@PathVariable Long sectionId){
         return ResponseEntity.ok(sectionService.findEmployeesBySectionId(sectionId));
     }
+
+    @GetMapping("/search-team/{sectionId}")
+    public ResponseEntity<?> findTeamsBySectionId(@PathVariable Long sectionId){
+        return ResponseEntity.ok(sectionService.findTeamsBySectionId(sectionId));
+    }
+
+
 }

@@ -92,6 +92,7 @@ public class EmployeeController {
                 .employeeCargo(employee.getEmployeeCargo())
                 .employeePhoto(employee.getEmployeePhoto())
                 .sectionId(employee.getSectionId())
+                .teamId(employee.getTeamId())
                 .build();
     }
 }

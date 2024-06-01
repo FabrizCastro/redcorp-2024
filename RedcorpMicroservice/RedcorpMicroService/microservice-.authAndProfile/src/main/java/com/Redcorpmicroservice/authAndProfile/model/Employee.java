@@ -49,6 +49,9 @@ public class Employee{
     @Column(name="section_id", nullable = false)
     private Long sectionId;
 
+    @Column(name="team_id", nullable = true)
+    private Long teamId;
+
     @Enumerated(EnumType.STRING)
     private Roles role;
 
