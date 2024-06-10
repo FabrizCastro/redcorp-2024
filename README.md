@@ -12,6 +12,7 @@ Para este proyecto se está usando `MySQL` como motor de base de datos, usando c
 Esta solución está conformada por cinco microservicios, siendo 2, core del negocio:
 - `microservice-workAndProject` (Puerto 9090)
 - `microservice-authAndProfile` (Puerto 8090)
+- `microservice-task` (Puerto 8070)
 - `microservice-config` (Puerto 8888)
 - `microservice-eureka` (Puerto 8761)
 - `microservice-gateway` (Puerto 8080)
@@ -26,6 +27,10 @@ cabe recalcar, que existe un archivo llamado `import.sql` qe contiene valores qu
 
 En el Proyecto existen dos controladores: `EmployeeController` y `SectionController`, hasta el momento solo se tienen estos endpoints: 
 
+Para Auth Controller:
+- http://localhost:8090/api/redcorp/v1/auth/register (POST)
+- http://localhost:8090/api/redcorp/v1/auth/login (POST) 
+
 Para Employee Controller: 
 - http://localhost:8090/api/redcorp/v1/employee (GET, POST)
 - http://localhost:8090/api/redcorp/v1/employee/{employeeId} (GET, PUT)
@@ -35,3 +40,21 @@ Para Section Controller:
 - http://localhost:9090/api/redcorp/v1/section (GET, POST)
 - http://localhost:9090/api/redcorp/v1/section/{sectionId} (GET)
 - http://localhost:9090/api/redcorp/v1/section/search-employee/{sectionId} (GET)
+- http://localhost:9090/api/redcorp/v1/section/search-team/{sectionId} (GET)
+
+Para Team Controller:
+- http://localhost:9090/api/redcorp/v1/team (GET,POST)
+- http://localhost:9090/api/redcorp/v1/team/{teamId} (GET, PUT)
+- http://localhost:9090/api/redcorp/v1/team/search-employee/{teamId} (GET)
+- http://localhost:9090/api/redcorp/v1/team/search-project/{teamId} (GET)
+
+Para Project Controller:
+- http://localhost:9090/api/redcorp/v1/project (GET,POST)
+- http://localhost:9090/api/redcorp/v1/project/{projectId} (GET, PUT)
+- http://localhost:9090/api/redcorp/v1/project/search-task/{projectId} (GET)
+
+Para Task Controller:
+- http://localhost:8070/api/redcorp/v1/task (GET,POST)
+- http://localhost:8070/api/redcorp/v1/task/{taskId} (GET,PUT)
+- http://localhost:8070/api/redcorp/v1/task/search-by-employee/{employeeId} (GET)
+- http://localhost:8070/api/redcorp/v1/task/search-by-project/{projectId} (GET)
