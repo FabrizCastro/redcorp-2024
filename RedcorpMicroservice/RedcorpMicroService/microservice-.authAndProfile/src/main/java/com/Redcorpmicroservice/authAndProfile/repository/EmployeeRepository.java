@@ -21,6 +21,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     Employee findByEmployeeEmailNative(@Param("employeeEmail") String employeeEmail);
 
     List<Employee> findAllBySectionId(Long sectionId);
-
+    List<Employee> findAllByTeamId(Long teamId);
     List<Employee> findAll();
 }

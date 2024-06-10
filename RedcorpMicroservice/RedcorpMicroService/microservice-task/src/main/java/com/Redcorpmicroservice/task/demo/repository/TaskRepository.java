@@ -1,4 +1,15 @@
 package com.Redcorpmicroservice.task.demo.repository;
 
-public interface TaskRepository {
+import com.Redcorpmicroservice.task.demo.model.Task;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface TaskRepository extends JpaRepository<Task,Long > {
+    boolean existsById(Long taskId);
+    List<Task> findAll();
+    List<Task> findAllByEmployeeId(Long employeeId);
+    List<Task> findAllByProjectId(Long projectId);
 }

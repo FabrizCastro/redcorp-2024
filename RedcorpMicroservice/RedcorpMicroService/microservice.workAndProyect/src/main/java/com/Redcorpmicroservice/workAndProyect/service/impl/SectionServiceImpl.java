@@ -1,6 +1,7 @@
 package com.Redcorpmicroservice.workAndProyect.service.impl;
 
 import com.Redcorpmicroservice.workAndProyect.client.EmployeeClient;
+import com.Redcorpmicroservice.workAndProyect.exception.ValidationException;
 import com.Redcorpmicroservice.workAndProyect.model.Section;
 import com.Redcorpmicroservice.workAndProyect.model.Team;
 import com.Redcorpmicroservice.workAndProyect.model.dto.EmployeeBySectionResponse;
@@ -9,7 +10,6 @@ import com.Redcorpmicroservice.workAndProyect.model.dto.TeamBySectionResponse;
 import com.Redcorpmicroservice.workAndProyect.repository.SectionRepository;
 import com.Redcorpmicroservice.workAndProyect.service.SectionService;
 import com.Redcorpmicroservice.workAndProyect.service.TeamService;
-import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,8 +38,49 @@ public class SectionServiceImpl implements SectionService {
     }
 
     @Override
-    public void save(Section section) {
-        sectionRepository.save(section);
+    public Section save(Section section) {
+        if(section.getSectionName() == null ||
+                section.getSectionName().isEmpty())
+        {
+            throw new ValidationException("El nombre de la sección es obligatorio");
+        }
+
+        if(section.getSectionDescription() == null ||
+                section.getSectionDescription().isEmpty())
+        {
+            throw new ValidationException("La descripción es obligatorio");
+
+        }
+
+        return sectionRepository.save(section);
+    }
+
+    @Override
+    public Section updateSection(Section section) {
+        Section sectionFind = findById(section.getId());
+
+        if(sectionRepository.existsById(section.getId()))
+        {
+            if(section.getSectionName() == null ||
+            section.getSectionName().isEmpty())
+            {
+                section.setSectionName(sectionFind.getSectionName());
+            }
+
+            if(section.getSectionDescription() == null ||
+                    section.getSectionDescription().isEmpty())
+            {
+                section.setSectionDescription(sectionFind.getSectionDescription());
+            }
+
+            return sectionRepository.save(section);
+        }
+        else
+        {
+            throw new ValidationException("Los valores de la sección están vacíos o no son correctos");
+
+        }
+
     }
 
     @Override

@@ -9,6 +9,7 @@ import java.util.List;
 @Repository
 public interface TeamRepository extends JpaRepository<  Team,Long> {
 
+    boolean existsById(Long teamId);
     List<Team> findAllBySectionId(Long teamId);
 
     List<Team> findAll();

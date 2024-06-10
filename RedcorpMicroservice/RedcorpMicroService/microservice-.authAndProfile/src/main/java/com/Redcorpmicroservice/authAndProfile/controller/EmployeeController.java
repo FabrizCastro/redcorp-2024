@@ -1,6 +1,7 @@
 package com.Redcorpmicroservice.authAndProfile.controller;
 
 import com.Redcorpmicroservice.authAndProfile.model.Employee;
+import com.Redcorpmicroservice.authAndProfile.model.dto.EmployeePutRequest;
 import com.Redcorpmicroservice.authAndProfile.model.dto.EmployeeRequest;
 import com.Redcorpmicroservice.authAndProfile.model.dto.EmployeeResponse;
 import com.Redcorpmicroservice.authAndProfile.repository.EmployeeRepository;
@@ -68,17 +69,40 @@ public class EmployeeController {
     // Method: PUT
 
     @PutMapping("/{employeeId}")
-    public ResponseEntity<Employee> updateUser(@PathVariable(name = "employeeId") Long employeeId, @RequestBody Employee employee) {
+    public ResponseEntity<EmployeeResponse> updateUser(@PathVariable(name = "employeeId") Long employeeId, @RequestBody EmployeePutRequest employeeRequest) {
 
-        employee.setId(employeeId);
+        Employee employee = employeeService.getEmployeeById(employeeId);
+        if (employee == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
 
-        return new ResponseEntity<Employee>(employeeService.updateEmployee(employee), HttpStatus.OK);
+        employee.setEmployeeFirstName(employeeRequest.getEmployeeFirstName());
+        employee.setEmployeeLastName(employeeRequest.getEmployeeLastName());
+        employee.setEmployeeDni(employeeRequest.getEmployeeDni());
+        employee.setEmployeeEmail(employeeRequest.getEmployeeEmail());
+        employee.setEmployeeArea(employeeRequest.getEmployeeArea());
+        employee.setEmployeeCargo(employeeRequest.getEmployeeCargo());
+        employee.setEmployeePhoto(employeeRequest.getEmployeePhoto());
+        employee.setSectionId(employeeRequest.getSectionId());
+        employee.setTeamId(employeeRequest.getTeamId());
 
+        EmployeeResponse updatedEmployee = employeeService.updateEmployee(employee);
+        return new ResponseEntity<EmployeeResponse>(updatedEmployee, HttpStatus.OK);
     }
 
     @GetMapping("/search-by-section/{sectionId}")
-    public ResponseEntity<?> findByIdCourse(@PathVariable Long sectionId){
+    public ResponseEntity<?> findByIdSection(@PathVariable Long sectionId){
         return ResponseEntity.ok(employeeService.findBySectionId(sectionId));
+    }
+
+    @GetMapping("/search-by-team/{teamId}")
+    public ResponseEntity<?> findByIdTeam(@PathVariable Long teamId){
+        return ResponseEntity.ok(employeeService.findByTeamId(teamId));
+    }
+
+    @GetMapping("/search-task/{employeeId}")
+    public ResponseEntity<?> findTasksByEmployeeId(@PathVariable Long employeeId){
+        return ResponseEntity.ok(employeeService.findTasksByEmployeeId(employeeId));
     }
 
     private EmployeeResponse convertToDto(Employee employee) {

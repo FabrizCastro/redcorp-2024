@@ -12,4 +12,7 @@ public interface EmployeeClient {
 
     @GetMapping("/api/redcorp/v1/employee/search-by-section/{sectionId}")
     List<EmployeeDto> findAllEmployeeBySection(@PathVariable Long sectionId);
+
+    @GetMapping("/api/redcorp/v1/employee/search-by-team/{teamId}")
+    List<EmployeeDto> findAllEmployeeByTeam(@PathVariable Long teamId);
 }

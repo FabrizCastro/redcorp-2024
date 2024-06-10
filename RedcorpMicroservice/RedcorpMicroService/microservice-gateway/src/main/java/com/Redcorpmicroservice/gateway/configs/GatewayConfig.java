@@ -23,6 +23,15 @@ public class GatewayConfig {
                 .route("sections", r -> r.path("/api/redcorp/v1/section/**")
                         .filters(f -> f.filter(filter))
                         .uri("http://localhost:9090"))
+                .route("sections", r -> r.path("/api/redcorp/v1/project/**")
+                        .filters(f -> f.filter(filter))
+                        .uri("http://localhost:9090"))
+                .route("sections", r -> r.path("/api/redcorp/v1/team/**")
+                        .filters(f -> f.filter(filter))
+                        .uri("http://localhost:9090"))
+                .route("employees", r -> r.path("/api/redcorp/v1/task/**")
+                        .filters(f -> f.filter(filter))
+                        .uri("http://localhost:8070"))
                 .build();
     }
 }

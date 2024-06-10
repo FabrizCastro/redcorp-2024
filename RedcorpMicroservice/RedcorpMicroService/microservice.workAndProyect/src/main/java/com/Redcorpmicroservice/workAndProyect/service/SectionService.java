@@ -3,7 +3,6 @@ package com.Redcorpmicroservice.workAndProyect.service;
 
 import com.Redcorpmicroservice.workAndProyect.model.Section;
 import com.Redcorpmicroservice.workAndProyect.model.dto.EmployeeBySectionResponse;
-import com.Redcorpmicroservice.workAndProyect.model.dto.EmployeeByTeamResponse;
 import com.Redcorpmicroservice.workAndProyect.model.dto.TeamBySectionResponse;
 
 import java.util.List;
@@ -14,7 +13,9 @@ public interface SectionService {
 
     Section findById(Long id);
 
-    void save (Section section);
+    Section save (Section section);
+
+    Section updateSection(Section section);
 
     EmployeeBySectionResponse findEmployeesBySectionId(Long sectionId);
 

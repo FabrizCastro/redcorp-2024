@@ -9,5 +9,6 @@ import java.util.List;
 
 @Repository
 public interface SectionRepository extends JpaRepository<Section, Long> {
+    boolean existsById(Long sectionId);
 
 }

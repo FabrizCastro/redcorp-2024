@@ -5,11 +5,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class EmployeeRequest {
+public class EmployeePutRequest {
 
     private String employeeFirstName;
     private String employeeLastName;
@@ -18,6 +19,8 @@ public class EmployeeRequest {
     private String employeePassword;
     private String employeeArea;
     private String employeeCargo;
+    private String employeePhoto;
     private Long sectionId;
-    private String role;
+    private Long teamId;
 }
+

@@ -11,6 +11,9 @@ public interface TeamService {
     List<Team> findAll();
     Team findById(Long id);
     void save (Team team);
+
+    Team updateTeam(Team team);
+
     List<Team> findAllBySectionId(Long sectionId);
     EmployeeByTeamResponse findEmployeesByTeamId (Long teamId);
 

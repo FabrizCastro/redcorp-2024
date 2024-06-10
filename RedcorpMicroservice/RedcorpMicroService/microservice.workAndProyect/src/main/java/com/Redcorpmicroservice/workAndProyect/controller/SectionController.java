@@ -35,10 +35,27 @@ public class SectionController {
     }
 
     @GetMapping("/{sectionId}")
-    public ResponseEntity<?> findById(@PathVariable Long sectionId)
+    public ResponseEntity<?> findById(@PathVariable(name = "sectionId") Long sectionId)
     {
         return ResponseEntity.ok(sectionService.findById(sectionId));
     }
+
+    @PutMapping("/{sectionId}")
+    public ResponseEntity<?> updateSection(@PathVariable(name = "sectionId") Long sectionId, @RequestBody SectionRequest sectionRequest)
+    {
+        Section section = sectionService.findById(sectionId);
+
+        if(section == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        section.setSectionName(sectionRequest.getSectionName());
+        section.setSectionDescription(sectionRequest.getSectionDescription());
+
+        return new ResponseEntity<Section>(sectionService.updateSection(section),HttpStatus.OK);
+    }
+
+
     @GetMapping("/search-employee/{sectionId}")
     public ResponseEntity<?> findEmployeesBySectionId(@PathVariable Long sectionId){
         return ResponseEntity.ok(sectionService.findEmployeesBySectionId(sectionId));
