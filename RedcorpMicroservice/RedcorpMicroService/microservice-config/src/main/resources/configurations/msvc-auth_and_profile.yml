@@ -6,9 +6,9 @@ spring:
     name: msvc-auth_and_profile
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/redcorp_auth_profile_db
+    url: jdbc:mysql://viaduct.proxy.rlwy.net:33555/redcorp_auth_profile_db
     username: root
-    password: 12345678
+    password: WByogaMVOcGiybGtNTkjhFbwBUpLokno
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -20,4 +20,4 @@ eureka:
     hostname: localhost
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://3.142.156.144:8761/eureka

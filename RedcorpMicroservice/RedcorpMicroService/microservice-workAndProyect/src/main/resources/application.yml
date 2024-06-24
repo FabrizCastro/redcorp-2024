@@ -2,4 +2,4 @@ spring:
   application:
     name: msvc-work_and_projects
   config:
-    import: optional:configserver:http://localhost:8888
+    import: optional:configserver:http://3.142.156.144:8888

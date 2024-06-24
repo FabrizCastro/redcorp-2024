@@ -1,0 +1,10 @@
+version: '3'
+services:
+  discovery:
+    image: fabrizziocastro/microservice-eureka:0.0.1-SNAPSHOT
+    ports:
+      - 8761:8761
+  config:
+    image: fabrizziocastro/microservice-config:0.0.1-SNAPSHOT
+    links:
+      -
