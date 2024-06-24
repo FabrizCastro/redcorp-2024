@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="microservice-gateway" />
+        <module name="microservice.task" />
+        <module name="microservice-authandprofile" />
+        <module name="microservice-eureka" />
+        <module name="microservice-config" />
+        <module name="microservice-workandproyect" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="microservice-.authAndProfile" target="17" />
+      <module name="microservice-authAndProfile" target="17" />
+      <module name="microservice-workAndProyect" target="17" />
+      <module name="microservice.workAndProyect" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="microservice-.authAndProfile" options="-parameters" />
+      <module name="microservice-authAndProfile" options="-parameters" />
+      <module name="microservice-authandprofile" options="-parameters" />
+      <module name="microservice-config" options="-parameters" />
+      <module name="microservice-eureka" options="-parameters" />
+      <module name="microservice-gateway" options="-parameters" />
+      <module name="microservice-workAndProyect" options="-parameters" />
+      <module name="microservice-workandproyect" options="-parameters" />
+      <module name="microservice.task" options="-parameters" />
+      <module name="microservice.workAndProyect" options="-parameters" />
+    </option>
+  </component>
+</project>

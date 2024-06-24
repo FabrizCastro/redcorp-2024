@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/redcorp-2024.iml" filepath="$PROJECT_DIR$/.idea/redcorp-2024.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RedcorpMicroservice/RedcorpMicroService/microservice-config/microservice-config.iml" filepath="$PROJECT_DIR$/RedcorpMicroservice/RedcorpMicroService/microservice-config/microservice-config.iml" />
     </modules>
   </component>
 </project>

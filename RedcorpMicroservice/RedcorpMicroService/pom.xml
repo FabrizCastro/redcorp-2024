@@ -21,8 +21,8 @@
     <module>microservice-gateway</module>
     <module>microservice-eureka</module>
     <module>microservice-config</module>
-    <module>microservice-.authAndProfile</module>
-    <module>microservice.workAndProyect</module>
+    <module>microservice-authandprofile</module>
+    <module>microservice-workandproyect</module>
     <module>microservice-task</module>
   </modules>
 
