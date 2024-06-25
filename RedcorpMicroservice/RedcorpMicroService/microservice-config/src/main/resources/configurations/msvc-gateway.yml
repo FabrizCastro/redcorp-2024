@@ -11,30 +11,33 @@ spring:
           enabled: true
       routes:
         - id: employees
-          uri: 'http://3.142.156.144:8090'
+          uri: 'http://172.31.11.92:8090'
           predicates:
             - Path=/api/redcorp/v1/employee/**
         - id: sections
-          uri: 'http://3.142.156.144:9090'
+          uri: 'http://172.31.11.92:9090'
           predicates:
             - Path=/api/redcorp/v1/section/**
         - id: auth
-          uri: 'http://3.142.156.144:8090'
+          uri: 'http://172.31.11.92:8090'
           predicates:
             - Path=/api/redcorp/v1/auth/**
         - id: sections
-          uri: 'http://3.142.156.144:9090'
+          uri: 'http://172.31.11.92:9090'
           predicates:
             - Path=/api/redcorp/v1/team/**
         - id: sections
-          uri: 'http://3.142.156.144:9090'
+          uri: 'http://172.31.11.92:9090'
           predicates:
             - Path=/api/redcorp/v1/project/**
         - id: sections
-          uri: 'http://3.142.156.144:8070'
+          uri: 'http://172.31.11.92:8070'
           predicates:
             - Path=/api/redcorp/v1/task/**
 
 eureka:
+  instance:
+    hostname: localhost
   client:
-    register-with-eureka: false
+    serviceUrl:
+      defaultZone: http://172.31.11.92:8761/eureka/

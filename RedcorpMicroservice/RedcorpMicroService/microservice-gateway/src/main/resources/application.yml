@@ -2,7 +2,7 @@ spring:
   application:
     name: msvc-gateway
   config:
-    import: 'optional:configserver:http://3.142.156.144:8888'
+    import: optional:configserver:http://172.31.11.92:8888
 
 jwt:
   secret: MiAVzqUXy5Tfr1kVIGpPMiAVzqUXy5Tfr1kVIGpP

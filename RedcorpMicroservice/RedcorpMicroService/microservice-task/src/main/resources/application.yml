@@ -2,4 +2,4 @@ spring:
   application:
     name: msvc-task
   config:
-    import: optional:configserver:http://3.142.156.144:8888
+    import: optional:configserver:http://172.31.11.92:8888

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "msvc-AuthAndProfile", url = "localhost:8090")
+@FeignClient(name = "msvc-AuthAndProfile", url = "172.31.11.92:8090")
 public interface EmployeeClient {
 
     @GetMapping("/api/redcorp/v1/employee/search-by-section/{sectionId}")
